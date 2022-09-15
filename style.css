@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    background-color: black;
+}
+
+h1{
+    color: teal;
+    text-align: center;
+}
+
+.calculatorButtons{
+    height: 100px;
+    width: 100px;
+}
+
+.userInputBox{
+    color: white;
+    font-size: 100px;
+    height: 200px;
+}
+button{
+    background-color: grey;
+    font-size: 50px;
+}
+
+button:hover{
+    background-color: teal;
+}
