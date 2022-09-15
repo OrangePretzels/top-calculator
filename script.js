@@ -11,6 +11,7 @@ numbers.map( number => {
     number.addEventListener('click', (e) => {
         if (sum != ''){
             numberInput.innerText = ''
+            // numberInput.innerText += e.target.value
         }
         num += e.target.value
         num = parseInt(num)

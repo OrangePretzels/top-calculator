@@ -6,23 +6,62 @@ body{
 h1{
     color: teal;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: linear-gradient(#e66465, #9198e5);
 }
 
-.calculatorButtons{
-    height: 100px;
-    width: 100px;
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    margin-left: 25rem;
+    margin-right: 25rem;
+    gap: 0;
+}
+
+.calculatorButtons,
+.operators,
+#clear{
+    /* height: 100px;
+    width: 100px; */
+    color: white;
+    background-color: black;
+    border: solid 1px grey;
+    font-family: 'Michroma', sans-serif;
+
 }
 
 .userInputBox{
+    margin-top: 5rem;
+    margin-left: 25rem;
+    margin-right: 25rem;
     color: white;
-    font-size: 100px;
+    font-size: 3rem;
     height: 200px;
+    word-wrap: break-word;
+    border: solid 1px grey;
+    
 }
 button{
     background-color: grey;
     font-size: 50px;
 }
 
-button:hover{
+button:hover,
+#clear:hover{
     background-color: teal;
+    color: black;
+    border: solid 1px black;
+}
+
+#span-two{
+    grid-column: span 2;
+}
+
+#span-three{
+    grid-column: span 3;
+}
+
+#clear{
+    grid-column: span 3;
 }
