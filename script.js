@@ -1,7 +1,8 @@
 let num = '';
 let numTwo = '';
+// let numThree = '';
 let firstOperand = '';
-let sum = ''
+let sum = '';
 
 const numberInput = document.querySelector('.numberInput')
 
@@ -9,10 +10,10 @@ const numbers = Array.from(document.querySelectorAll('.calculatorButtons'))
 
 numbers.map( number => {
     number.addEventListener('click', (e) => {
-        if (sum != ''){
-            numberInput.innerText = ''
-            // numberInput.innerText += e.target.value
-        }
+        // if (sum != ''){
+        //     numberInput.innerText = ''
+        //     // numberInput.innerText += e.target.value
+        // }
         num += e.target.value
         num = parseInt(num)
         numberInput.innerText += e.target.value
@@ -23,23 +24,54 @@ numbers.map( number => {
 const operators = Array.from(document.querySelectorAll('.operators'))
 
 operators.map( operator => {
+
     operator.addEventListener('click', (e) => {
-        operator = e.target.value
+
+        operator = e.target.value;
+
+        firstOperand = e.target.value
+
         if(e.target.value === '='){
-            // result(num, firstOperand, numTwo)
+            
             result(num, numTwo)
+
         } else if(e.target.value === '+' || '-' || '*' ||'/'){
+
+            if(num != '' && numTwo != ''){
+
+                    if(firstOperand === '+'){
+                        num = num + numTwo
+                        numTwo = '';
+                        numberInput.innerText = num
+                        console.log(num)
+                    }else if(firstOperand === '-'){
+                        // num = numTwo - num
+                        // numTwo = '';
+                        // numberInput.innerText = num
+                        // console.log(num)
+                    }else if(firstOperand === '*'){
+                        // num = num * numTwo
+                        // numTwo = '';
+                        // numberInput.innerText = num
+                        // console.log(num)
+                    }else if(firstOperand === '/'){
+                        // num = numTwo / num
+                        // numTwo = '';
+                        // numberInput.innerText = num
+                        // console.log(num)
+                    }
+                }
+
+
             numberInput.innerText = e.target.value
+
             numTwo = num
             num = ''
-            // 
-            firstOperand = e.target.value
-            console.log(firstOperand)
+
         }
 
     })
 })
-
 
 function result (a, b){
     if(firstOperand == '+'){
@@ -71,19 +103,17 @@ function result (a, b){
         firstOperand = '';
         numberInput.innerText = sum
     }
-    // console.log( a, operand, b)
 }
-
-
 
 const clear = document.querySelector('#clear')
 
-clear.addEventListener('click', function (){
-            numberInput.innerText = ''
-            num = ''
-            numTwo = ''
-            firstOperand = '';
-            sum = ''
+const removeEverything = function (){
+    numberInput.innerText = ''
+    num = ''
+    numTwo = ''
+    firstOperand = '';
+    sum = ''
+    console.log("CLEARED")
+}
 
-            console.log(num, numTwo, firstOperand, sum)
-})
+clear.addEventListener('click', removeEverything)
